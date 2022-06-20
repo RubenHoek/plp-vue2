@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <NavbarVue/>
+    <ShoppingCart></ShoppingCart>
   </div>
 </template>
 
 <script>
 import NavbarVue from "./components/NavbarVue.vue";
+import ShoppingCart from "./components/ShoppingCart.vue";
 
 export default {
   components: {
-    NavbarVue 
-  },
+    NavbarVue,
+    ShoppingCart
+},
 }
 </script>
 
