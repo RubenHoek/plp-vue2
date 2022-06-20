@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import firebase from '@/includes/firebase'
+
   export default {
     data() {
       return {
@@ -46,9 +48,18 @@
       }
     },
     methods: {
-      onSubmit(event) {
-        event.preventDefault()
-        alert(JSON.stringify(this.form))
+      async onSubmit(event) {
+        event.preventDefault();
+        let userCred = null;
+        try{
+        userCred = await firebase.auth().createUserWithEmailAndPassword(
+          this.form.email, this.form.password,
+        );
+        console.log(userCred);
+      } catch(error){
+        // ToDo: handle error
+        console.log(error);
+      }
       },
       onReset(event) {
         event.preventDefault()
