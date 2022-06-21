@@ -6,12 +6,14 @@
             {{ product.desc }}
         </b-card-text>
 
-        <b-button @click="addToCart" variant="primary" pill class="m-3">Add to Cart</b-button>
-        <b-button @click="RemoveFromCart" variant="danger" pill>Remove from Cart</b-button>
+        <b-button @click="addProductToCart({product: product})" variant="primary" pill class="m-3">Add to Cart</b-button>
+        <b-button @click="removeProductFromCart({product: product})" variant="danger" pill>Remove from Cart</b-button>
     </b-card>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     name: 'ProductItem',
     props: {
@@ -20,12 +22,7 @@ export default {
         }
     },
     methods: {
-        addToCart() {
-            this.$store.dispatch("addProductToCart", {product: this.product});
-        },
-        RemoveFromCart(){
-            this.$store.dispatch("removeProductFromCart", {product: this.product});
-        }
+        ...mapActions(["addProductToCart", "removeProductFromCart"]),
     }
 }
 </script>

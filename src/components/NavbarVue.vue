@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand to="/">Home</b-navbar-brand>
+      <b-navbar-brand to="/"><img alt="Vue logo" src="../assets/logo.png" class="w-25"></b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

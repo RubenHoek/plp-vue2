@@ -1,18 +1,17 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Welcome to the Home page</h1>
+    <p>This project is a WIP, the home page is not made yet. Maybe some day it will be beuatifull, probaply not 😉</p>
+    <br/>
+    <p>At this moment, we only have an <b-button to="/products" variant="primary">Product Page</b-button> </p>
+    <br/>
+    <p>It is also possible to <b-button to="/Register" variant="primary">Register</b-button> with email and password</p>
+    <br/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
-  }
 }
 </script>
