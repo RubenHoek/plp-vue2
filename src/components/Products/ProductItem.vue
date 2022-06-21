@@ -21,11 +21,10 @@ export default {
     },
     methods: {
         addToCart() {
-            console.log("add product");
             this.$store.dispatch("addProductToCart", {product: this.product});
         },
         RemoveFromCart(){
-            console.log("RemoveFromCart");
+            this.$store.dispatch("removeProductFromCart", {product: this.product});
         }
     }
 }

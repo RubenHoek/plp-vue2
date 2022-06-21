@@ -12,11 +12,13 @@ export default new Vuex.Store({
   mutations: {
     pushToCart: (state, payload) => state.productsCart.push(payload),
     increaseProduct: (state, payload) => state.productsCart[payload].quantity ++,
-    removeFromCart: (state, payload) => state.productsCart.push(payload),
+    removeFromCart: (state, payload) => state.productsCart.splice(payload, 1),
+    decreaseProduct: (state, payload) => state.productsCart[payload].quantity --,
   },
   actions: {
+    // ToDo: make function so there is no duplicated code here. 
     addProductToCart: ({commit, state}, {product}) => {
-      const productInCart = state.productsCart.find(e => e.id === product.id)
+      const productInCart = state.productsCart.find(e => e.id === product.id);
       if(productInCart){
         const productIndex = state.productsCart.indexOf(productInCart);
         return commit('increaseProduct', productIndex);
@@ -24,10 +26,18 @@ export default new Vuex.Store({
       
       product.quantity = 1;
       commit('pushToCart',product)
-      
-      console.log(commit);
-      console.log(state);
-      console.log(product);
+    },
+    removeProductFromCart: ({ commit, state}, {product}) => {
+      const productInCart = state.productsCart.find(e => e.id === product.id);
+      if(productInCart){
+        const productIndex = state.productsCart.indexOf(productInCart);
+        if(productInCart.quantity > 1){
+          return commit('decreaseProduct', productIndex);
+        }
+        return commit('removeFromCart', productIndex);
+      }
+      // ToDo: what to do when there is no product to remove?
+      console.log('🎈this product is not in the cart!');
     }
   },
   modules: {
