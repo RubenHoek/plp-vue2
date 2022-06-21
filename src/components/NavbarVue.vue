@@ -15,12 +15,11 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="/Register">Register</b-nav-item>
 
-            <!-- https://thewebdev.info/2020/07/31/bootstrapvue%E2%80%8A-%E2%80%8Aopen-and-close-modals/ -->
+          <!-- https://thewebdev.info/2020/07/31/bootstrapvue%E2%80%8A-%E2%80%8Aopen-and-close-modals/ -->
           <b-nav-item v-b-modal.shopping-cart>
-            Shopping cart
-            <!-- ToDo: make the shopping cart icon + count work -->
-            <!-- <i class="fas fa-shopping-cart"></i> -->
-            <!-- <b-badge pill variant="dark">{{ shoppingCartItemsCount }}</b-badge> -->
+            <!-- ToDo: make this look good -->
+            <b-icon class="bi bi-cart-fill text-dark" fill="currentColor" alt="shopping cart" scale="5"></b-icon>
+            <b-badge pill variant="info">{{ shoppingCartItemsCount }}</b-badge>
           </b-nav-item>
 
           <b-nav-item-dropdown right>
@@ -45,6 +44,7 @@ export default {
   props: {
     shoppingCartItemsCount: {
       type: Number,
+      default: 1,
       // required: true,
     }
   },
