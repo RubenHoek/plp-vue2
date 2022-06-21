@@ -19,7 +19,7 @@
           <b-nav-item v-b-modal.shopping-cart>
             <!-- ToDo: make this look good -->
             <b-icon class="bi bi-cart-fill text-dark" fill="currentColor" alt="shopping cart" scale="5"></b-icon>
-            <b-badge pill variant="info">{{ shoppingCartItemsCount }}</b-badge>
+            <b-badge pill variant="info">{{ itemCount }}</b-badge>
           </b-nav-item>
 
           <b-nav-item-dropdown right>
@@ -39,15 +39,20 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'NavbarVue',
-  props: {
-    shoppingCartItemsCount: {
-      type: Number,
-      default: 1,
-      // required: true,
-    }
-  },
+   computed: {
+    ...mapState(['itemCount'])
+  }
+  // props: {
+  //   shoppingCartItemsCount: {
+  //     type: Number,
+  //     default: 1,
+  //     // required: true,
+  //   }
+  // },
 }
 
 </script>
