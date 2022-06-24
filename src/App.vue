@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavbarVue/>
+    <NavbarVue />
     <ShoppingCart></ShoppingCart>
   </div>
 </template>
@@ -13,7 +13,12 @@ export default {
   components: {
     NavbarVue,
     ShoppingCart
-},
+  },
+  mounted(){
+    if (localStorage.productsInCart) {
+      this.$store.dispatch('cartItemsFromLocalStorage', localStorage.productsInCart);
+    }
+  }
 }
 </script>
 

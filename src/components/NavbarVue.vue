@@ -22,14 +22,14 @@
             <b-badge pill variant="info">{{ itemCount }}</b-badge>
           </b-nav-item>
 
+          <!-- ToDo: finish the user functionality in the app. 
           <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
             <template #button-content>
               <em>User</em>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-          </b-nav-item-dropdown>
+          </b-nav-item-dropdown> -->
 
         </b-navbar-nav>
       </b-collapse>
@@ -43,7 +43,7 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'NavbarVue',
-   computed: {
+  computed: {
     ...mapState(['itemCount'])
   }
   // props: {

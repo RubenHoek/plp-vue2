@@ -5,7 +5,7 @@
     <br/>
     <p>At this moment, we only have an <b-button to="/products" variant="primary">Product Page</b-button> </p>
     <br/>
-    <p>It is also possible to <b-button to="/Register" variant="primary">Register</b-button> with email and password</p>
+    <p>It is also possible to <b-button to="/Register" variant="primary">Register</b-button> with email and password, but that has no functionality yet in the app.</p>
     <br/>
   </div>
 </template>

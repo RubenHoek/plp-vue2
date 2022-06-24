@@ -15,7 +15,9 @@ export default new Vuex.Store({
     increaseProduct: (state, payload) => state.productsInCart[payload].quantity ++,
     removeFromCart: (state, payload) => state.productsInCart.splice(payload, 1),
     decreaseProduct: (state, payload) => state.productsInCart[payload].quantity --,
-    setItemCount: (state, payload) => state.itemCount = payload
+    setItemCount: (state, payload) => state.itemCount = payload,
+    cartItemsFromLocalStorage: (state, payload) => state.productsInCart = payload,
+    updateLocalStorage: (state) => localStorage.setItem("productsInCart", JSON.stringify(state.productsInCart))
   },
   actions: {
     // ToDo: make function so there is no duplicated code here. 
@@ -50,7 +52,12 @@ export default new Vuex.Store({
     changeItemCount: ({commit, state}) => {
       const quantities = state.productsInCart.map(e => e.quantity);
       const total = quantities.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
-      return commit('setItemCount', total);
+      commit('setItemCount', total);
+      commit('updateLocalStorage');
+    },
+    cartItemsFromLocalStorage: ({commit}, cartProducts) => {
+      cartProducts = JSON.parse(localStorage.getItem("productsInCart"));
+      commit('cartItemsFromLocalStorage', cartProducts);
     }
   },
   modules: {
